@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Двигающийся квадрат</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let x = 50, y = 50, size = 50;
+
+        function drawSquare() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'red';
+            ctx.fillRect(x, y, size, size);
+        }
+
+        function moveSquare(event) {
+            switch (event.key) {
+                case 'ArrowUp': y = Math.max(0, y - 10); break;
+                case 'ArrowDown': y = Math.min(canvas.height - size, y + 10); break;
+                case 'ArrowLeft': x = Math.max(0, x - 10); break;
+                case 'ArrowRight': x = Math.min(canvas.width - size, x + 10); break;
+            }
+            drawSquare();
+        }
+
+        drawSquare();
+        document.addEventListener('keydown', moveSquare);
+    </script>
+</body>
+</html>
