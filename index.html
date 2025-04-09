@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "yellow"; 
+        ctx.fillRect(150, 200, 200, 200); 
+
+    
+        ctx.beginPath();
+        ctx.moveTo(120, 200); 
+        ctx.lineTo(250, 100); 
+        ctx.lineTo(380, 200); 
+        ctx.closePath();
+        ctx.fillStyle = "red";
+        ctx.fill();
+
+    
+        ctx.fillStyle = "blue"; 
+        ctx.fillRect(180, 240, 40, 40);
+        ctx.fillRect(280, 240, 40, 40); 
+
+        
+        ctx.fillStyle = "purple";
+        ctx.fillRect(230, 320, 40, 80); 
+
+        // Рисуем трубу
+        ctx.fillStyle = "#A52A2A"; // Цвет трубы
+        ctx.fillRect(270, 120, 30, 60); // Труба
+    </script>
+</body>
+</html>
